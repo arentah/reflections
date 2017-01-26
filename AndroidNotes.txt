@@ -1,0 +1,17 @@
+wrap_content = take as much space as the content needs
+match_parent = take as much space as the parent view provides
+
+match_parent on root(parent) view will fill the width and/or height to fill the device width and/or height
+
+android:layout_weight=" " --------------------> the child view with the largest number will grow the most
+				           	as the app is applied to different devices, put a number in " "
+android:layout_alignParentTop=" "-------------> place child view at the top of parent view, set to "true" or "false"
+android:layout_alignParentBottom=" " ---------> place child view at the bottom of parent view, set to "true" or "false"
+android:layout_alignParentLeft=" " -----------> place child view at the left of parent view, set to "true" or "false"
+android:layout_alignParentRight=" " ----------> place child view at the right of parent view, set to "true" or "false"
+
+alignParentLeft/Right/Bottom/Top can be applied mmultiple at a time
+
+android:layout_centerHorizontal= " " ---------> set child at the center of whichever alignParent it's at
+android:layout_centerVertical= " " -----------> 
+ 
