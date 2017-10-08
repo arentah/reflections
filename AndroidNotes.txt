@@ -1,7 +1,15 @@
 wrap_content = take as much space as the content needs
 match_parent = take as much space as the parent view provides
 
+width/height in dp and text in sp
+
 match_parent on root(parent) view will fill the width and/or height to fill the device width and/or height
+
+android:scaleType=" " ------------------------> centerCrop to strecht image
+
+if there are problems with the views overlapping, try to readjust the order of the views in the xml
+margin - space around the view
+padding - space within the view
 
 android:layout_weight=" " --------------------> the child view with the largest number will grow the most
 				           	as the app is applied to different devices, put a number in " "
@@ -10,8 +18,82 @@ android:layout_alignParentBottom=" " ---------> place child view at the bottom o
 android:layout_alignParentLeft=" " -----------> place child view at the left of parent view, set to "true" or "false"
 android:layout_alignParentRight=" " ----------> place child view at the right of parent view, set to "true" or "false"
 
-alignParentLeft/Right/Bottom/Top can be applied mmultiple at a time
+alignParentLeft/Right/Bottom/Top can be applied multiple at a time
 
-android:layout_centerHorizontal= " " ---------> set child at the center of whichever alignParent it's at
-android:layout_centerVertical= " " -----------> 
- 
+android:layout_gravity=" " -------------------> set the entire widget to center, top, bottom, etc
+android:gravity=" " --------------------------> set the contents (the insides) of the widget to center, top, bottom, etc 
+
+android:layout_centerHorizontal= " " ---------> set child at the center horizontal of whichever alignParent it's on
+android:layout_centerVertical= " " -----------> set child at the center vertical of whichever alignParent it's on
+android:id="@+id/ " --------------------------> insert ID name after /
+android:textColor="# " -----------------------> insert hex value after #
+
+priceTextView.setText(NumberFormat.getCurrencyInstance().format(number)); use to display $ without needing to hard code
+
+add break point, then run in debug mode. This will stop the app at the break point, then you can use step over to go to next line
+	you can continue this step over as many times as you like or click on resume app to continue running the app as normal
+	step over to go to next line
+	step into to go to next line and enter method if there exists one
+
+if you want to initialize something when the app is first run ,input the code in onCreate after super and setContextView, you can also
+	use a method to call that same code as long as the method call is after super and setContextView
+
+frameLayout, gridLayout, relativeLayout, linearLayout
+
+
+To remove Theme App Bar
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">  
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+Java Method Syntax
+access Modifier --> return data type --> method name --> (parameter data type parameter name, ...) { }
+
+XML Items and Attributes are Java Objects with their respective methods
+
+To create objects, usually you instantiate it. For example String s = new String("hello");
+but there is another method called creating objects with factory method. For example, 
+Toast toast = Toast.makeToast(context, "hello", duration); 
+
+HINT FROM Learning this shit the hard way... DO NOT add padding or margin to the child view (linearlayout)
+	inside the parent view (scrollview) because that padding/margin will cut off what the linearlayout
+	should be displaying. To fix this, add the padding/margin to the parent (scrollview) and all set. 
+
+EditText to remove underline use android:background="@android:color/transparent"
+
+
+To hide Keyboard from autoloading, place this --> android:windowSoftInputMode="stateHidden" <-- into manifest under activity
+	or use this --> this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN); <-- 
+	inside the onCreate method of activity
+
+URI - uniform resource identifier (data should be in correct structure to be useful)
+
+android:parentActivityName=".MainActivity" || ----> this is the up button, similar to back button on the phone but the up
+button takes you back heirarchial order, so you get to the parent that called the child. For example if activity A has a button
+that takes you to Activity B, then pushing the up button will take you back to the parent of B which was A, or the heirarchial order
+of what called B which is A 
+
+Recycle View ---> ListView + ArrayAdapter //ListView can also be replaced with a GridView, make sure to use android:numColumns="<int>"
+Spinner ----> drop down menu
+ListView and GridView are common adapter Views
+
+xmlns:tools="" 
+tools:text="whatever" // this is used for displaying text in the preview but not while the program is running, used for design/building
+	placeholder text for the programmer to make sure it looks correctly
+
+When Implementing a new feature (or anything new), always break up the implementation into steps. Implement the steps sequentially and 
+and test inbetween each implemenation. This way it is easy to identify what went wrong. Also implement the riskiest step first and make
+sure it works before continuing the rest of the steps. Implementing the riskiest step first is a great way to show proof of concept.
+
+(mdpi)   1dp = 1px
+(hdpi)   1dp = 1.5px
+(xhdpi)  1dp = 2px
+(xxhdpi) 1dp = 3px
+(xxxhdpi)1dp = 4px
+
+Accessing Resources in Android
+in java code ---> example R.string.hello;
+in xml code ----> exmaple @string/hello;
+
+MediaPlayer class can play both audio files, video files, or have files stream from the internet 
